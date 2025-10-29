@@ -188,3 +188,10 @@ if (steward.vaultieAccess) {
   hideVaulties();
   showTrustWarning(); // Optional: “Vaulties are blocked due to listing accuracy.”
 }
+listing = {
+  title: "Vintage Lamp",
+  owner: "abc123",
+  isAccurate: true,
+  flaggedByAdmin: false,
+  flaggedAt: null
+}
