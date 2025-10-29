@@ -14,3 +14,7 @@ stewardAccuracy: {
     "referralTimestamp": "2025-10-28T14:00:00"
   }
 }
+
+{
+  "stewardUID": "uid_ABC123"
+}
