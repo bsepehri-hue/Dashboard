@@ -49,3 +49,17 @@ stewardAccuracy: {
     "timestamp": "2025-10-28T16:20:00"
   }
 ]
+
+{
+  "uid": "uid_Bo",
+  "name": "Bo",
+  "scrolls": ["scroll_ABC123", "scroll_DEF456"],
+  "referrals": ["uid_Willow", "uid_Elm"],
+  "metrics": {
+    "totalListings": 12,
+    "glyphs": ["🪵", "🕊️"],
+    "printedScrolls": 10,
+    "archivedScrolls": 8,
+    "referralDepth": 2
+  }
+}
