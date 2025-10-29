@@ -181,3 +181,10 @@ function checkVaultieBlock(uid) {
     }
   });
 }
+
+if (steward.vaultieAccess) {
+  showVaulties();
+} else {
+  hideVaulties();
+  showTrustWarning(); // Optional: “Vaulties are blocked due to listing accuracy.”
+}
