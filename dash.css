@@ -216,3 +216,11 @@
   margin-top: 20px;
   opacity: 0.6;
 }
+.blessing-scroll {
+  background: #fffbe6;
+  border: 1px solid #e0d4b7;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+}
