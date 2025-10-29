@@ -467,3 +467,12 @@ scrollHTML += `<p><strong>Echo:</strong> ${echo}</p>`;
 });
 
 if (!listing.title) echo = "A Whispered Offering";
+
+if (listing.referral) {
+  scrollHTML += `
+    <div class="referral-shimmer">
+      <p><strong>Referral Blessing:</strong> Offered via Willow’s invitation</p>
+      <p><em>2% blessing shimmer will ripple to Willow upon sale</em></p>
+    </div>
+  `;
+}
