@@ -322,7 +322,16 @@ function assignGlyphTier(uid) {
       glyphTier: tier,
       constellationGlyph: glyph
     });
-  });
+  
+blessing = {
+  listingID: "abc123",
+  stewardUID: "xyz789",
+  echo: "Warm glow, brass base",
+  timestamp: "2025-10-28T02:42:00Z",
+  constellationGlyph: "☉",
+  referralEcho: 2,
+  printed: true
+}
 }
 
   });
