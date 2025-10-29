@@ -305,3 +305,18 @@
 <button onclick="downloadScroll('${listingID}')">📥 Save as PDF</button>
 
 <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://listtobid.com/listing/${listingID}" />
+
+<div class="listing-card">
+  <!-- Listing content -->
+  <div class="blessing-scroll" id="scroll-${listingID}">
+    <h2>🌟 Blessing Scroll</h2>
+    <p><strong>Steward:</strong> ${stewardName}</p>
+    <p><strong>Echo:</strong> ${echo}</p>
+    <p><strong>Timestamp:</strong> ${timestamp}</p>
+    <p><strong>Constellation Glyph:</strong> ${glyph}</p>
+    ${referralBlock}
+    <p class="uid-watermark"><em>Steward UID:</em> ${uid}</p>
+  </div>
+  <button onclick="printScroll('${listingID}')">🖨️ Print Scroll</button>
+  <button onclick="downloadScroll('${listingID}')">📥 Save as PDF</button>
+</div>
