@@ -109,3 +109,32 @@ function closeHistoryModal() {
   document.getElementById("history-modal").style.display = "none";
 }
 firebase.firestore.FieldValue.serverTimestamp()
+
+const listingFeed = document.getElementById("listing-feed");
+const currentUID = firebase.auth().currentUser.uid;
+
+firebase.firestore().collection("listings")
+  .where("owner", "==", currentUID)
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const card = document.createElement("div");
+      card.className = "listing-card";
+
+      card.innerHTML = `
+        <h3 class="listing-title">${data.title}</h3>
+        <p class="listing-price">$${data.price}</p>
+        <p class="listing-description">${data.description}</p>
+        <p class="listing-condition">Condition: ${data.condition}</p>
+        <p class="listing-shipping">Shipping: ${data.shipping}</p>
+        <div class="listing-controls">
+          <button class="edit-btn" onclick="openEditModal('${doc.id}')">Edit</button>
+          <button class="remove-btn" onclick="confirmRemove('${doc.id}')">Remove</button>
+          <button class="history-btn" onclick="openHistoryModal('${doc.id}')">History</button>
+        </div>
+      `;
+
+      listingFeed.appendChild(card);
+    });
+  });
