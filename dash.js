@@ -108,3 +108,4 @@ function openHistoryModal(listingID) {
 function closeHistoryModal() {
   document.getElementById("history-modal").style.display = "none";
 }
+firebase.firestore.FieldValue.serverTimestamp()
