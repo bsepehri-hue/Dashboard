@@ -229,6 +229,17 @@ listing = {
   createdAt: "2025-10-28T02:42:00Z",
   constellationGlyph: "🜁" // example glyph
 }
+
+function showBlessingScroll(listingID) {
+  firebase.firestore().collection("listings").doc(listingID).get().then(doc => {
+    const data = doc.data();
+    document.getElementById("scroll-owner").textContent = data.owner;
+    document.getElementById("scroll-echo").textContent = data.echo;
+    document.getElementById("scroll-time").textContent = new Date(data.createdAt.toDate()).toLocaleString();
+    document.getElementById("scroll-glyph").textContent = data.constellationGlyph;
+    document.getElementById("blessing-scroll").style.display = "block";
+  });
+}
     });
   });
 }
