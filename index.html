@@ -1,200 +1,3 @@
-.<!DOCTYPE html>
-<html>
-  <head>
-    <title>GIS Test</title>
-   <!-- Load GIS script and trigger initialization only after it's ready -->
-<script src="https://accounts.google.com/gsi/client" onload="initializeGsi()" async defer></script>
-
-
-
-    <script src="https://accounts.google.com/gsi/client" onload="initializeGsi()" async defer></script>
-    <style>
-      body {
-        font-family: sans-serif;
-        text-align: center;
-        margin-top: 50px;
-      }
-      #buttonDiv {
-        margin: 20px auto;
-        background: #f0f0f0;
-        padding: 10px;
-        width: fit-content;
-      }
-
-<div id="referralEcho" style="margin-top: 12px; font-size: 0.9em; color: #1a472a;"></div>
-
-    </style>
-  </head>
-
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-  <body>
-  <!-- Button container -->
-<div id="buttonDiv"></div>
-    <script>
-      // This function runs only after the GIS script has fully loaded
-      function initializeGsi() {
-        google.accounts.id.initialize({
-          client_id: "102420516875-fd1k2fl0g5gd2gkt5oenbh5lcov6db4o.apps.googleusercontent.com",
-          callback: (response) => {
-            alert("Credential received:\n" + response.credential);
-          }
-        });
-
-        google.accounts.id.renderButton(document.getElementById("buttonDiv"), {
-          theme: "outline",
-          size: "large"
-        });
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Steward Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css" />
-</head>
-<body>
-  <div class="sidebar">
-    <button onclick="signOut()">Sign Out</button>
-    <nav>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Listings</a></li>
-        <li><a href="#">Settings</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="main-content">
-    <h2>Welcome, Babak Sepehri</h2>
-    <div class="steward-profile">
-      <div class="photo-placeholder">Steward Photo</div>
-      <div class="info">
-        <h3>Bo Sepehri</h3>
-        <p>Trusted Steward</p>
-        <p>Echoed Listings: 12</p>
-        <p>Referral Constellation: Active</p>
-        <p>Active Listings: 5</p>
-        <p>Credits Earned: 12</p>
-      </div>
-    </div>
-
-    <!-- 🔽 Blessing Grid Starts Here 🔽 -->
-    <div class="blessing-grid">
-      <div class="grid-cell blessing active">
-        <div class="amount">$42</div>
-        <div class="glyph">🌟</div>
-        <div class="label">Echoed Listing</div>
-      </div>
-      <div class="grid-cell vaultie bagged">
-        <div class="stage">👜</div>
-        <div class="label">Bagged</div>
-      </div>
-      <div class="grid-cell referral">
-        <div class="amount">+2%</div>
-        <div class="label">Referral Ripple</div>
-      </div>
-      <div class="grid-cell warning">
-        <div class="glyph">⚠️</div>
-        <div class="label">2 Strikes</div>
-      </div>
-    </div>
-    <!-- 🔼 Blessing Grid Ends Here 🔼 -->
-  </div>
-
-<div id="vaultiesGrid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px;"></div>
-
-<div id="referralEcho" style="margin-top: 12px; font-size: 0.9em; color: #1a472a;"></div>
-
-  <script src="dashboard.js"></script>
-const vaulties = [
-  { type: "coin", label: "Sale #1" },
-  { type: "echo", label: "Referral by steward123" },
-  { type: "offering", label: "Listed: Vintage Lamp" },
-  { type: "glyph", label: "Unlocked: Orion" },
-  { type: "chest", label: "Milestone: 5 Listings" }
-];
-
-const urlParams = new URLSearchParams(window.location.search);
-const previewMode = urlParams.get("preview") === "true";
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user || previewMode) {
-    // show dashboard
-  } else {
-    window.location.href = "index.html";
-  }
-
-});
-
-const grid = document.getElementById("vaultiesGrid");
-
-vaulties.forEach((v) => {
-  const tile = document.createElement("div");
-  tile.style.padding = "16px";
-  tile.style.border = "1px solid #ccc";
-  tile.style.borderRadius = "8px";
-  tile.style.background = "#f9f9f9";
-  tile.style.textAlign = "center";
-  tile.innerHTML = `
-    <div style="font-size: 24px;">${getVaultyIcon(v.type)}</div>
-    <div style="margin-top: 8px; font-size: 0.85em;">${v.label}</div>
-  `;
-  grid.appendChild(tile);
-});
-
-function getVaultyIcon(type) {
-  switch (type) {
-    case "coin": return "🪙";
-    case "echo": return "🌀";
-    case "offering": return "📦";
-    case "glyph": return "🌌";
-    case "chest": return "🧰";
-    default: return "❔";
-  }
-}
-
-</body>
-</html>
-        google.accounts.id.prompt();
-      }
-    </script>
-const referrer = localStorage.getItem("referrer");
-if (referrer) {
-  console.log("You were invited by:", referrer);
-  document.querySelector("#referralEcho").textContent = `Blessed by ${referrer}`;
-}
-  </body>
-</html>
-     
-    </div>
-  </section>
-
-  <!-- === SECTION 2: DASHBOARD === -->
-  <section id="dashboard-section" style="display:none;">
-    <aside class="sidebar">
-      <div>
-        <div class="sidebar-header">ListToBid</div>
-        <nav class="sidebar-nav">
-          <ul>
-            <li><a href="#" class="active">Dashboard</a></li>
-            <li><a href="#">Listings</a></li>
-            <li><a href="#">Settings</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="sidebar-footer">
-        <button id="logout-button">Sign Out</button>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      <header class="main-header">
-        <h2>Welcome, <span id="steward-name">Steward</span></h2>
-      </header>
-
-      <div class="main-container">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,11 +6,11 @@ if (referrer) {
   <title>ListToBid Dashboard</title>
   <link rel="stylesheet" href="dashboard.css" />
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="auth.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
 </head>
 <body>
-  <!-- Sidebar Navigation -->
-  <div class="sidebar-header">
+  <aside class="sidebar">
     <div class="sidebar-title">ListToBid</div>
     <nav class="sidebar-nav">
       <ul>
@@ -216,232 +19,133 @@ if (referrer) {
         <li><a href="#">Settings</a></li>
       </ul>
     </nav>
-  </div>
+    <footer><button id="logout">Sign Out</button></footer>
+  </aside>
 
-  <!-- Main Content -->
-  <div class="main-content">
+  <main class="main-content">
     <h2>Welcome, Babak Sepehri</h2>
-
-    <!-- Steward Profile -->
     <div class="steward-profile">
       <div class="photo-placeholder">Steward Photo</div>
       <div class="info">
         <h3>Bo Sepehri</h3>
-        <p>Trusted Steward</p>
-        <p>Referral Constellation: Active</p>
-        <p>Listings: 8</p>
-        <p>Credits Earned: 124</p>
+        <p>Trusted Stewards: ✅</p>
+        <p>Referral Constellation: Active ✅</p>
+        <p>Echoes Earned: 12 ✅</p>
+        <p>Credits Earned: 124 ✅</p>
       </div>
     </div>
 
-    <!-- Blessing Grid -->
+    <!-- 🔥 Listing Form Starts Here -->
+    <form id="listingForm">
+      <fieldset class="listing-section">
+        <legend>New Listing</legend>
+        <label>Item Name: <input type="text" name="itemName" required /></label>
+        <label>Price: <input type="number" name="price" min="1" required /></label>
+        <label>Description: <textarea name="description"></textarea></label>
+        <label>Condition:
+          <select name="condition">
+            <option>New</option>
+            <option>Good</option>
+            <option>Fair</option>
+            <option>Poor</option>
+          </select>
+        </label>
+        <label>Shipping:
+          <input type="radio" name="shipping" value="Pickup" /> Pickup
+          <input type="radio" name="shipping" value="Delivery" /> Delivery
+        </label>
+      </fieldset>
+      <button type="submit">Fire Listing</button>
+    </form>
+    <!-- 🔥 Listing Form Ends Here -->
+
+    <!-- 📦 Listing Feed -->
+    <div id="listingFeed"></div>
+
+    <!-- 💰 Vaultie Stage -->
+    <div id="vaultieStage">
+      <div id="scheduledQuantity">Scheduled: 0</div>
+      <div id="vaultiesBagged">Vaulties Bagged: 0</div>
+      <div id="vaultReference">Vault Ref: —</div>
+    </div>
+
+    <!-- 🌐 Referral Impact -->
+    <div id="referralImpact">
+      <div>Enrolled Referrals: 3</div>
+      <div>Ripple: +2%</div>
+    </div>
+
+    <!-- 🎁 Blessing Grid -->
     <div class="blessing-grid">
-      <div class="grid-cell blessing active">
-        <div class="amount">$42</div>
+      <div class="grid-cell blessing">
         <div class="label">Scheduled Listing</div>
+        <div class="value">$42</div>
       </div>
-      <div class="grid-cell value bagged">
-        <div class="label">Bagged</div>
+      <div class="grid-cell bagged">
+        <div class="label">Vaultie Bagged</div>
+        <div class="value">👜</div>
       </div>
       <div class="grid-cell referral">
         <div class="label">Referral Ripple</div>
+        <div class="value">+2%</div>
       </div>
-      <div class="grid-cell warning">
-        <div class="glyph">⚠️</div>
-        <div class="label">Oops</div>
+      <div class="grid-cell oops">
+        <div class="label">Ooos</div>
+        <div class="value">⚡</div>
       </div>
     </div>
 
-    <!-- Listing Form -->
-    <div class="listing-form">
-      <h3>Create New Listing</h3>
-      <form id="newListingForm">
-        <fieldset>
-          <legend>Listing Details</legend>
-          <label for="title">Listing Title</label>
-          <input type="text" id="title" name="title" required />
+    <!-- 🔊 Referral Echo -->
+    <div id="referralEcho" style="margin-top:12px; font-size:0.9em; color:#14234B;"></div>
 
-          <label for="description">Description</label>
-          <textarea id="description" name="description" required></textarea>
+    <!-- 🧰 Vaulties Grid -->
+    <div id="vaultiesGrid" style="display:grid; grid-template-columns:repeat(6, 1fr); gap:24px;"></div>
+  </main>
 
-          <label for="category">Category</label>
-          <input type="text" id="category" name="category" required />
-        </fieldset>
+  <script src="dashboard.js"></script>
+  <script>
+    const vaulties = [
+      { type: "coin", label: "Sale #1" },
+      { type: "echo", label: "Referral by steward123" },
+      { type: "light", label: "Vintage Lamp" },
+      { type: "glyph", label: "Unlocked: Orion" },
+      { type: "chest", label: "Milestone: 5 Listings" }
+    ];
 
-        <fieldset>
-          <legend>Pricing</legend>
-          <label for="startingBid">Starting Bid ($)</label>
-          <input type="number" id="startingBid" name="startingBid" required />
+    function getVaultIcon(type) {
+      switch (type) {
+        case "coin": return "🪙";
+        case "echo": return "📣";
+        case "light": return "💡";
+        case "glyph": return "🔣";
+        case "chest": return "🧰";
+        default: return "❔";
+      }
+    }
 
-          <label for="reservePrice">Reserve Price ($)</label>
-          <input type="number" id="reservePrice" name="reservePrice" />
-        </fieldset>
+    const grid = document.getElementById("vaultiesGrid");
+    vaulties.forEach(v => {
+      const title = document.createElement("div");
+      title.style.border = "1px solid #ccc";
+      title.style.borderRadius = "8px";
+      title.style.background = "#f0f0f0";
+      title.style.textAlign = "center";
+      title.style.padding = "12px";
+      title.innerHTML = `
+        <div style="font-size: 24px">${getVaultIcon(v.type)} ${v.label}</div>
+        <div style="padding-top: 8px; font-size: 0.85em">${v.label}</div>
+      `;
+      grid.appendChild(title);
+    });
 
-        <fieldset>
-          <legend>Shipping</legend>
-          <label for="shippingType">Select Shipping Type</label>
-          <select id="shippingType" name="shippingType" required>
-            <option value="">-- Select --</option>
-            <option value="standard">Standard</option>
-            <option value="express">Express</option>
-            <option value="local">Local Pickup</option>
-          </select>
-
-          <label for="handlingFee">Handling Fee (%)</label>
-          <input type="number" id="handlingFee" name="handlingFee" value="10" readonly />
-        </fieldset>
-
-        <fieldset>
-          <legend>Media & Publish</legend>
-          <label for="fileUpload">Choose File</label>
-          <input type="file" id="fileUpload" name="fileUpload" />
-
-          <button type="submit">Publish Listing</button>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</body>
-</html>
-
-        <!-- Steward Profile -->
-        <section id="steward-profile" class="dashboard-section">
-          <div class="profile-header">
-            <img src="steward-photo.jpeg" alt="Steward Photo" class="profile-photo" />
-            <h2 class="steward-name">Bo Sepehri</h2>
-            <div class="badges">
-              <span class="badge trust">Trusted Steward</span>
-              <span class="badge echo">Echoed Listings: 12</span>
-              <span class="badge referral">Referral Constellation: Active</span>
-            </div>
-            <p class="listing-count">Active Listings: 5</p>
-            <p class="credit-earned">Credits Earned: 12</p>
-<div class="blessing-grid">
-  <!-- Listing Blessing -->
-  <div class="grid-cell blessing active">
-    <div class="amount">$42</div>
-    <div class="glyph">🌟</div>
-    <div class="label">Echoed Listing</div>
-  </div>
-
-  <!-- Vaultie Stage -->
-  <div class="grid-cell vaultie bagged">
-    <div class="stage">👜</div>
-    <div class="label">Bagged</div>
-  </div>
-
-  <!-- Referral Impact -->
-  <div class="grid-cell referral">
-    <div class="amount">+2%</div>
-    <div class="label">Referral Ripple</div>
-  </div>
-
-  <!-- Accuracy Warning -->
-  <div class="grid-cell warning">
-    <div class="glyph">⚠️</div>
-    <div class="label">2 Strikes</div>
-  </div>
-</div>
-          </div>
-        </section>
-
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-          <label for="filter-category">Category:</label>
-          <select id="filter-category">
-            <option value="">All</option>
-            <option value="Art">Art</option>
-            <option value="Tools">Tools</option>
-            <option value="Books">Books</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Furniture">Furniture</option>
-            <option value="Other">Other</option>
-          </select>
-
-          <label for="filter-steward">Steward:</label>
-          <input type="text" id="filter-steward" placeholder="e.g. Bo Sepehri" />
-        </div>
-
-        <!-- Listing Feed -->
-        <section id="all-listings" class="dashboard-section">
-          <h3>All Listings</h3>
-          <div id="listing-feed" class="listing-feed"></div>
-        </section>
-
-        <!-- Blessing Scroll -->
-        <section id="blessing-scroll" class="dashboard-section" style="display:none;">
-          <div class="scroll-card">
-            <h3>Blessing Scroll</h3>
-            <p><strong>Steward:</strong> Bo Sepehri</p>
-            <p><strong>Echo ID:</strong> <span id="scroll-echo-id"></span></p>
-            <p><strong>Listing:</strong> <span id="scroll-title"></span></p>
-            <p><strong>Category:</strong> <span id="scroll-category"></span></p>
-            <p><strong>Referral Constellation:</strong> Active</p>
-            <p><strong>Timestamp:</strong> <span id="scroll-timestamp"></span></p>
-            <p><strong>Glyph:</strong> <span id="scroll-glyph"></span></p>
-          </div>
-        </section>
-
-        <!-- Listing Tool -->
-        <section id="listing-tool" class="dashboard-section">
-          <h3>Create a New Listing</h3>
-          <form id="create-listing-form" class="listing-form">
-            <input type="text" id="listing-title" placeholder="Listing Title" required />
-            <textarea id="listing-description" placeholder="Description" required></textarea>
-            <input type="text" id="listing-category" placeholder="Category" required />
-            <input type="number" id="starting-bid" placeholder="Starting Bid ($)" required />
-            <select id="shipping-type">
-              <option value="">Select Shipping Type</option>
-              <option value="local">Local Pickup Only</option>
-              <option value="standard">Standard Shipping</option>
-            </select>
-            <input type="file" id="listing-image" accept="image/*" />
-            <button type="submit" class="btn-primary">Publish Listing</button>
-          </form>
-        </section>
-
-      </div>
-    </main>
-  </section>
-
-  <!-- === SCRIPT === -->
-<script type="module" src="auth.js"></script>
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAS-eRT9CKzEvWuBS55Gqzaoa0lB1f_1lg",
-  authDomain: "oakportal-57694.firebaseapp.com",
-  projectId: "oakportal-57694",
-  storageBucket: "oakportal-57694.firebasestorage.app",
-  messagingSenderId: "102420516875",
-  appId: "1:102420516875:web:b8d86253b30a62e37f370e"
-};
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
     const referrer = localStorage.getItem("referrer");
     if (referrer) {
-      console.log("You were invited by:", referrer);
-      document.querySelector("#referralEcho").textContent = `Blessed by ${referrer}`;
+      document.getElementById("referralEcho").textContent = `Blessed by ${referrer}`;
     }
-    // Continue with dashboard logic...
-  } else {
-    window.location.href = "index.html";
-  }
-});
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-};
-firebase.initializeApp(firebaseConfig);
-</body>
-</html>
-
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>
