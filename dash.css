@@ -1,0 +1,36 @@
+.listing-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.listing-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.listing-price {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.listing-controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.listing-controls button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+}
+
+.listing-controls button:hover {
+  background-color: #005fa3;
+}
