@@ -228,3 +228,18 @@
   <p><strong>Verify or share this offering:</strong></p>
   <img src="..." />
 </div>
+
+.scroll-card.archived::before {
+  content: "✴️";
+  animation: pulseGlyph 2s infinite;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+@keyframes pulseGlyph {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
