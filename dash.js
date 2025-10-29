@@ -424,3 +424,23 @@ firebase.firestore().collection("stewards").doc(uid)
       glyphFeed.appendChild(card);
     });
   });
+const uid = "uid_ABC123"; // steward UID
+const now = new Date();
+const quarter = `Q${Math.floor((now.getMonth() + 3) / 3)}-${now.getFullYear()}`;
+
+const accuracyRef = firebase.database().ref(`stewardAccuracy/${uid}/${quarter}`);
+
+accuracyRef.transaction(current => {
+  if (current === null) {
+    return {
+      inaccurateCount: 1,
+      lastFlagged: now.toISOString()
+    };
+  } else {
+    const newCount = current.inaccurateCount + 1;
+    return {
+      inaccurateCount: newCount,
+      lastFlagged: now.toISOString()
+    };
+  }
+});
