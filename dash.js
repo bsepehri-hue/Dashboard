@@ -38,3 +38,26 @@ if (doc.data().owner === firebase.auth().currentUser.uid) {
 } else {
   alert("You can only edit your own listings.");
 }
+let listingToRemove = null;
+
+function confirmRemove(listingID) {
+  listingToRemove = listingID;
+  document.getElementById("remove-modal").style.display = "flex";
+}
+
+function closeRemoveModal() {
+  document.getElementById("remove-modal").style.display = "none";
+  listingToRemove = null;
+}
+
+function removeListing() {
+  if (!listingToRemove) return;
+
+  firebase.firestore().collection("listings").doc(listingToRemove).delete().then(() => {
+    closeRemoveModal();
+    location.reload(); // Optional: refresh to reflect removal
+  }).catch(error => {
+    alert("Error removing listing: " + error.message);
+    closeRemoveModal();
+  });
+}
