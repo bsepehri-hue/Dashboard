@@ -243,3 +243,13 @@
   100% { opacity: 0.4; transform: scale(1); }
 }
 
+.referral-shimmer {
+  animation: shimmerGlow 3s infinite;
+}
+
+@keyframes shimmerGlow {
+  0% { box-shadow: 0 0 5px #ffeebb; }
+  50% { box-shadow: 0 0 15px #fff5cc; }
+  100% { box-shadow: 0 0 5px #ffeebb; }
+}
+
