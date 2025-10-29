@@ -154,3 +154,30 @@ listing = {
 }
 
 firebase.firestore().collection("stewards").doc(uid).get()
+
+function checkVaultieBlock(uid) {
+  const stewardRef = firebase.firestore().collection("stewards").doc(uid);
+
+  stewardRef.get().then(doc => {
+    const data = doc.data();
+    const now = new Date();
+    const quarterStart = new Date(data.lastReset);
+
+    // If we're in a new quarter, reset count
+    if (now - quarterStart > 90 * 24 * 60 * 60 * 1000) {
+      stewardRef.update({
+        inaccurateCount: 1,
+        lastReset: now.toISOString(),
+        vaultieAccess: true
+      });
+    } else {
+      const newCount = data.inaccurateCount + 1;
+      const block = newCount >= 3;
+
+      stewardRef.update({
+        inaccurateCount: newCount,
+        vaultieAccess: !block
+      });
+    }
+  });
+}
