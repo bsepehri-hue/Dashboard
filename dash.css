@@ -208,3 +208,11 @@
   text-shadow: 0 0 5px #cceeff;
   animation: shimmer 3s infinite;
 }
+
+.uid-watermark {
+  font-size: 10px;
+  color: #999;
+  text-align: right;
+  margin-top: 20px;
+  opacity: 0.6;
+}
