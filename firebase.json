@@ -6,3 +6,11 @@ stewardAccuracy: {
     }
   }
 }
+
+{
+  "referral": {
+    "referrerUID": "uid_XYZ789",
+    "referrerName": "Willow",
+    "referralTimestamp": "2025-10-28T14:00:00"
+  }
+}
