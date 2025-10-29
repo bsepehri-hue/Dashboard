@@ -461,6 +461,7 @@ function getGlyphClass(inaccurateCount) {
   "timestamp": "2025-10-29T16:20:00",
   "glyph": "🪵"
 }
-
+const echo = listing.title || "Unnamed Offering";
+scrollHTML += `<p><strong>Echo:</strong> ${echo}</p>`;
 
 });
