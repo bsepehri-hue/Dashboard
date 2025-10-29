@@ -401,3 +401,26 @@ glyphHistory = {
   referralCount: 2,
   accuracyRate: 1.0
 }
+const glyphFeed = document.getElementById("glyph-feed");
+const uid = firebase.auth().currentUser.uid;
+
+firebase.firestore().collection("stewards").doc(uid)
+  .collection("glyphHistory")
+  .orderBy("quarter", "asc")
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const card = document.createElement("div");
+      card.className = "glyph-card";
+
+      card.innerHTML = `
+        <h3>${data.quarter}</h3>
+        <p><strong>Tier:</strong> ${data.glyphTier} ${data.constellationGlyph}</p>
+        <p><strong>Referrals:</strong> ${data.referralCount}</p>
+        <p><strong>Accuracy:</strong> ${(data.accuracyRate * 100).toFixed(1)}%</p>
+      `;
+
+      glyphFeed.appendChild(card);
+    });
+  });
