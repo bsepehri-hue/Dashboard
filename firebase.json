@@ -18,3 +18,21 @@ stewardAccuracy: {
 {
   "stewardUID": "uid_ABC123"
 }
+
+{
+  "scrollID": "scroll_ABC123",
+  "listingID": "listing_XYZ789",
+  "stewardName": "Bo",
+  "echo": "Vintage Oak Bench",
+  "timestamp": "2025-10-29T16:20:00",
+  "glyph": "🪵",
+  "referral": {
+    "referrerName": "Willow"
+  },
+  "uid": "uid_ABC123",
+  "status": {
+    "printed": true,
+    "exported": true,
+    "archived": true
+  }
+}
