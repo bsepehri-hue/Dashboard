@@ -276,7 +276,19 @@ function handleReferralEcho(listingID) {
       listingRef.update({
         referralEchoPaid: true
       });
-    });
+    function selectGlyph(glyph) {
+  const uid = firebase.auth().currentUser.uid;
+  firebase.firestore().collection("stewards").doc(uid).update({
+    constellationGlyph: glyph
+  }).then(() => {
+    alert("Glyph selected: " + glyph);
+    closeGlyphSelector();
+  });
+}
+
+function closeGlyphSelector() {
+  document.getElementById("glyph-selector").style.display = "none";
+}
   });
 }
 }
