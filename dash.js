@@ -355,4 +355,16 @@ firebase.firestore().collection("blessings")
 
       blessingFeed.appendChild(card);
     });
+
+quarterlyBlessing = {
+  stewardUID: "abc123",
+  quarter: "2025-Q4",
+  listingsCreated: 12,
+  referralCount: 4,
+  referralEchoTotal: 38.00,
+  printedScrolls: 9,
+  glyphTier: "Constellant",
+  constellationGlyph: "☉",
+  accuracyRate: 0.97
+}
   
