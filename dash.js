@@ -31,7 +31,6 @@ document.getElementById("edit-form").addEventListener("submit", function(e) {
     closeEditModal();
     location.reload(); // Optional: refresh to show updated listing
   });
-});
 
 if (doc.data().owner === firebase.auth().currentUser.uid) {
   // Allow edit
@@ -68,7 +67,7 @@ firebase.firestore().collection("listings").doc(listingToRemove).get().then(doc 
   } else {
     alert("You can only remove your own listings.");
   }
-});
+
 
 function openHistoryModal(listingID) {
   const log = document.getElementById("history-log");
@@ -137,7 +136,7 @@ firebase.firestore().collection("listings")
 
       listingFeed.appendChild(card);
     });
-  });
+  
 
 steward = {
   uid: "abc123",
@@ -177,8 +176,7 @@ function checkVaultieBlock(uid) {
       stewardRef.update({
         inaccurateCount: newCount,
         vaultieAccess: !block
-      });
-    }
+      
   });
 }
 
