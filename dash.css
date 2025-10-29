@@ -97,3 +97,24 @@
 .scroll p {
   margin: 8px 0;
 }
+
+.glyph-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.glyph-grid span {
+  cursor: pointer;
+  padding: 8px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+.glyph-grid span:hover {
+  border-color: #d4af37;
+  background: #fffbe6;
+}
