@@ -144,3 +144,20 @@
   border-radius: 8px;
   font-family: 'Georgia', serif;
 }
+.glyph-echo-clear {
+  background: radial-gradient(circle, #cceeff, #99ddff);
+  border-radius: 50%;
+  animation: shimmer 2s infinite;
+}
+
+.glyph-echo-warning {
+  background: orange;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  animation: flicker 1s infinite;
+}
+
+.glyph-echo-paused {
+  background: red;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  opacity: 0.6;
+}
