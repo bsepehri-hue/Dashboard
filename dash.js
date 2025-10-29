@@ -465,3 +465,5 @@ const echo = listing.title || "Unnamed Offering";
 scrollHTML += `<p><strong>Echo:</strong> ${echo}</p>`;
 
 });
+
+if (!listing.title) echo = "A Whispered Offering";
