@@ -80,3 +80,20 @@
   font-size: 14px;
   color: #333;
 }
+.scroll {
+  background: #fffbe6;
+  border: 2px solid #d4af37;
+  padding: 24px;
+  margin: 20px auto;
+  width: 300px;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+.scroll h2 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.scroll p {
+  margin: 8px 0;
+}
