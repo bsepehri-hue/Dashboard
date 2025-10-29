@@ -1,0 +1,8 @@
+stewardAccuracy: {
+  "uid123": {
+    "Q4-2025": {
+      "inaccurateCount": 2,
+      "lastFlagged": "2025-10-29T15:00:00Z"
+    }
+  }
+}
