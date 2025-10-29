@@ -476,3 +476,6 @@ if (listing.referral) {
     </div>
   `;
 }
+
+const stewardName = listing.stewardName || "Unnamed Steward";
+scrollHTML += `<p><strong>Steward:</strong> ${stewardName}</p>`;
