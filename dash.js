@@ -153,3 +153,4 @@ listing = {
   flaggedAt: "2025-10-28"
 }
 
+firebase.firestore().collection("stewards").doc(uid).get()
