@@ -32,3 +32,9 @@ document.getElementById("edit-form").addEventListener("submit", function(e) {
     location.reload(); // Optional: refresh to show updated listing
   });
 });
+
+if (doc.data().owner === firebase.auth().currentUser.uid) {
+  // Allow edit
+} else {
+  alert("You can only edit your own listings.");
+}
