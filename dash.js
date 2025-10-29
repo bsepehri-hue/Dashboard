@@ -289,6 +289,14 @@ function handleReferralEcho(listingID) {
 function closeGlyphSelector() {
   document.getElementById("glyph-selector").style.display = "none";
 }
+steward = {
+  uid: "abc123",
+  referralCount: 4,
+  inaccurateCount: 0,
+  glyphTier: "Constellant",
+  constellationGlyph: "☉"
+}
+
   });
 }
 }
