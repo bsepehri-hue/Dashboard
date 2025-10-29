@@ -479,3 +479,15 @@ if (listing.referral) {
 
 const stewardName = listing.stewardName || "Unnamed Steward";
 scrollHTML += `<p><strong>Steward:</strong> ${stewardName}</p>`;
+
+function printScroll(id) {
+  const scroll = document.getElementById(`scroll-${id}`);
+  const win = window.open('', '', 'width=800,height=600');
+  win.document.write(scroll.outerHTML);
+  win.print();
+}
+
+function downloadScroll(id) {
+  const scroll = document.getElementById(`scroll-${id}`);
+  html2pdf().from(scroll).save(`BlessingScroll-${id}.pdf`);
+}
