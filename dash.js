@@ -245,6 +245,12 @@ steward = {
   referredBy: "xyz789", // UID of referring steward
   referralEcho: 0.02 // 2% echo
 }
+
+listing = {
+  owner: "abc123",
+  price: 100,
+  referralEchoPaid: false
+}
 }
     });
   });
