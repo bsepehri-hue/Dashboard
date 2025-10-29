@@ -36,3 +36,16 @@ stewardAccuracy: {
     "archived": true
   }
 }
+
+"blessingTrail": [
+  {
+    "uid": "uid_Willow",
+    "name": "Willow",
+    "timestamp": "2025-10-27T14:00:00"
+  },
+  {
+    "uid": "uid_Bo",
+    "name": "Bo",
+    "timestamp": "2025-10-28T16:20:00"
+  }
+]
