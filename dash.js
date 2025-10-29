@@ -138,3 +138,11 @@ firebase.firestore().collection("listings")
       listingFeed.appendChild(card);
     });
   });
+
+steward = {
+  uid: "abc123",
+  vaultieAccess: true,
+  inaccurateCount: 2,
+  lastReset: "2025-10-01"
+}
+
