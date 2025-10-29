@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+6<!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="dash.css">
 <head>
@@ -184,3 +184,17 @@
   </script>
 </body>
 </html>
+<div id="edit-modal" class="modal">
+  <div class="modal-content">
+    <h3>Edit Listing</h3>
+    <form id="edit-form">
+      <input type="text" id="edit-title" placeholder="Title">
+      <input type="text" id="edit-price" placeholder="Price">
+      <textarea id="edit-description" placeholder="Description"></textarea>
+      <input type="text" id="edit-condition" placeholder="Condition">
+      <input type="text" id="edit-shipping" placeholder="Shipping">
+      <button type="submit">Save Changes</button>
+      <button type="button" onclick="closeEditModal()">Cancel</button>
+    </form>
+  </div>
+</div>
