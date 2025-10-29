@@ -69,3 +69,42 @@ firebase.firestore().collection("listings").doc(listingToRemove).get().then(doc 
     alert("You can only remove your own listings.");
   }
 });
+
+function openHistoryModal(listingID) {
+  const log = document.getElementById("history-log");
+  log.innerHTML = ""; // Clear previous
+
+  firebase.firestore().collection("listings").doc(listingID).get().then(doc => {
+    const data = doc.data();
+    const history = [];
+
+    if (data.createdAt) {
+      history.push(`Created: ${new Date(data.createdAt.toDate()).toLocaleString()}`);
+    }
+    if (data.updatedAt) {
+      history.push(`Last Updated: ${new Date(data.updatedAt.toDate()).toLocaleString()}`);
+    }
+    if (data.removedAt) {
+      history.push(`Removed: ${new Date(data.removedAt.toDate()).toLocaleString()}`);
+    }
+    if (data.echoCount) {
+      history.push(`Echoed ${data.echoCount} times`);
+    }
+
+    if (history.length === 0) {
+      history.push("No history available.");
+    }
+
+    history.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      log.appendChild(li);
+    });
+
+    document.getElementById("history-modal").style.display = "flex";
+  });
+}
+
+function closeHistoryModal() {
+  document.getElementById("history-modal").style.display = "none";
+}
