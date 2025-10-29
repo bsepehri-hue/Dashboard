@@ -146,3 +146,10 @@ steward = {
   lastReset: "2025-10-01"
 }
 
+listing = {
+  owner: "abc123",
+  isAccurate: true,
+  flaggedByAdmin: false,
+  flaggedAt: "2025-10-28"
+}
+
