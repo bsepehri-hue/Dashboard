@@ -202,3 +202,9 @@
   0% { background-position: -200px; }
   100% { background-position: 200px; }
 }
+.steward-name {
+  font-family: 'Cinzel', serif;
+  color: #4b2e83;
+  text-shadow: 0 0 5px #cceeff;
+  animation: shimmer 3s infinite;
+}
