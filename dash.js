@@ -221,6 +221,14 @@ function flagListing(listingID, ownerUID) {
         lastReset: newQuarter ? now.toISOString() : data.lastReset,
         vaultieAccess: vaultieAccess
       });
+
+listing = {
+  title: "Vintage Lamp",
+  owner: "abc123",
+  echo: "Warm glow, brass base",
+  createdAt: "2025-10-28T02:42:00Z",
+  constellationGlyph: "🜁" // example glyph
+}
     });
   });
 }
