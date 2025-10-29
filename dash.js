@@ -334,12 +334,27 @@ blessing = {
 }
 }
 
-  });
-}
-}
+const blessingFeed = document.getElementById("blessing-feed");
+const uid = firebase.auth().currentUser.uid;
 
+firebase.firestore().collection("blessings")
+  .where("stewardUID", "==", uid)
+  .orderBy("timestamp", "desc")
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const card = document.createElement("div");
+      card.className = "blessing-card";
 
+      card.innerHTML = `
+        <p><strong>Echo:</strong> ${data.echo}</p>
+        <p><strong>Time:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
+        <p><strong>Glyph:</strong> ${data.constellationGlyph}</p>
+        <p><strong>Referral Echo:</strong> $${data.referralEcho.toFixed(2)}</p>
+        <p><strong>Printed:</strong> ${data.printed ? "✅" : "❌"}</p>
+      `;
 
+      blessingFeed.appendChild(card);
     });
-  });
-}
+  
