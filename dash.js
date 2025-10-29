@@ -491,3 +491,8 @@ function downloadScroll(id) {
   const scroll = document.getElementById(`scroll-${id}`);
   html2pdf().from(scroll).save(`BlessingScroll-${id}.pdf`);
 }
+
+function toggleScroll(id) {
+  const scroll = document.getElementById(`scroll-${id}`);
+  scroll.style.display = scroll.style.display === 'none' ? 'block' : 'none';
+}
