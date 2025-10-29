@@ -61,3 +61,11 @@ function removeListing() {
     closeRemoveModal();
   });
 }
+
+firebase.firestore().collection("listings").doc(listingToRemove).get().then(doc => {
+  if (doc.data().owner === firebase.auth().currentUser.uid) {
+    // Proceed with delete
+  } else {
+    alert("You can only remove your own listings.");
+  }
+});
