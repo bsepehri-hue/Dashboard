@@ -135,3 +135,12 @@
   border-radius: 8px;
   font-family: 'Georgia', serif;
 }
+
+.glyph-card {
+  background: #fdf6f0;
+  border: 1px solid #d4af37;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
+}
