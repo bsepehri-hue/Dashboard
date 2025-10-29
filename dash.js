@@ -442,5 +442,9 @@ accuracyRef.transaction(current => {
       inaccurateCount: newCount,
       lastFlagged: now.toISOString()
     };
+
+if (newCount >= 3) {
+  firebase.database().ref(`stewards/${uid}/status`).set("deactivated");
+}
   }
 });
