@@ -253,3 +253,12 @@
   100% { box-shadow: 0 0 5px #ffeebb; }
 }
 
+.echo-title {
+  animation: echoReveal 1.5s ease-out;
+}
+
+@keyframes echoReveal {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
