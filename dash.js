@@ -1,4 +1,4 @@
-let currentEditID = null;
+ylet currentEditID = null;
 
 function openEditModal(listingID) {
   currentEditID = listingID;
@@ -446,5 +446,10 @@ accuracyRef.transaction(current => {
 if (newCount >= 3) {
   firebase.database().ref(`stewards/${uid}/status`).set("deactivated");
 }
-  }
+if (newCount >= 3) {
+  firebase.database().ref(`stewards/${uid}/status`).set("deactivated");
+  // Optionally ripple a Pause Scroll or alert
+}
+
+
 });
