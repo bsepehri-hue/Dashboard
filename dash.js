@@ -455,6 +455,11 @@ function getGlyphClass(inaccurateCount) {
   if (inaccurateCount === 2) return "glyph-echo-warning";
   if (inaccurateCount === 1) return "glyph-echo-ripple";
   return "glyph-echo-clear";
+{
+  "steward": "Bo",
+  "echo": "Vintage Oak Bench",
+  "timestamp": "2025-10-29T16:20:00",
+  "glyph": "🪵"
 }
 
 
