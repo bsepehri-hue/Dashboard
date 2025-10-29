@@ -368,3 +368,29 @@ quarterlyBlessing = {
   accuracyRate: 0.97
 }
   
+const summaryFeed = document.getElementById("summary-feed");
+const uid = firebase.auth().currentUser.uid;
+
+firebase.firestore().collection("quarterlyBlessings")
+  .where("stewardUID", "==", uid)
+  .orderBy("quarter", "desc")
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const card = document.createElement("div");
+      card.className = "summary-card";
+
+      card.innerHTML = `
+        <h3>${data.quarter}</h3>
+        <p><strong>Listings:</strong> ${data.listingsCreated}</p>
+        <p><strong>Referrals:</strong> ${data.referralCount}</p>
+        <p><strong>Echo Earned:</strong> $${data.referralEchoTotal.toFixed(2)}</p>
+        <p><strong>Scrolls Printed:</strong> ${data.printedScrolls}</p>
+        <p><strong>Glyph Tier:</strong> ${data.glyphTier} ${data.constellationGlyph}</p>
+        <p><strong>Accuracy:</strong> ${(data.accuracyRate * 100).toFixed(1)}%</p>
+      `;
+
+      summaryFeed.appendChild(card);
+    });
+  });
