@@ -393,4 +393,11 @@ firebase.firestore().collection("quarterlyBlessings")
 
       summaryFeed.appendChild(card);
     });
-  });
+  
+glyphHistory = {
+  quarter: "2025-Q3",
+  glyphTier: "Echoer",
+  constellationGlyph: "✦",
+  referralCount: 2,
+  accuracyRate: 1.0
+}
