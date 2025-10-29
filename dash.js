@@ -251,7 +251,38 @@ listing = {
   price: 100,
   referralEchoPaid: false
 }
+
+function handleReferralEcho(listingID) {
+  const listingRef = firebase.firestore().collection("listings").doc(listingID);
+
+  listingRef.get().then(doc => {
+    const listing = doc.data();
+    if (listing.referralEchoPaid || !listing.owner) return;
+
+    const stewardRef = firebase.firestore().collection("stewards").doc(listing.owner);
+    stewardRef.get().then(stewardDoc => {
+      const steward = stewardDoc.data();
+      if (!steward.referredBy) return;
+
+      const referrerRef = firebase.firestore().collection("stewards").doc(steward.referredBy);
+      const echoAmount = listing.price * 0.02;
+
+      // Pay echo to referrer
+      referrerRef.update({
+        referralEchoTotal: firebase.firestore.FieldValue.increment(echoAmount)
+      });
+
+      // Mark listing as echo-paid
+      listingRef.update({
+        referralEchoPaid: true
+      });
+    });
+  });
 }
+}
+
+
+
     });
   });
 }
