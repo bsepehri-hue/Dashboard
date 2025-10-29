@@ -1,4 +1,4 @@
-.listing-card {
+6.listing-card {
   background: #f9f9f9;
   border-radius: 12px;
   padding: 16px;
@@ -117,4 +117,13 @@
 .glyph-grid span:hover {
   border-color: #d4af37;
   background: #fffbe6;
+}
+
+.blessing-card {
+  background: #fef9e7;
+  border: 1px solid #d4af37;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
 }
