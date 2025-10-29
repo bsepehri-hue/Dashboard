@@ -239,6 +239,12 @@ function showBlessingScroll(listingID) {
     document.getElementById("scroll-glyph").textContent = data.constellationGlyph;
     document.getElementById("blessing-scroll").style.display = "block";
   });
+
+steward = {
+  uid: "abc123",
+  referredBy: "xyz789", // UID of referring steward
+  referralEcho: 0.02 // 2% echo
+}
 }
     });
   });
