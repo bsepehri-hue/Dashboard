@@ -450,6 +450,12 @@ if (newCount >= 3) {
   firebase.database().ref(`stewards/${uid}/status`).set("deactivated");
   // Optionally ripple a Pause Scroll or alert
 }
+function getGlyphClass(inaccurateCount) {
+  if (inaccurateCount >= 3) return "glyph-echo-paused";
+  if (inaccurateCount === 2) return "glyph-echo-warning";
+  if (inaccurateCount === 1) return "glyph-echo-ripple";
+  return "glyph-echo-clear";
+}
 
 
 });
