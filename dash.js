@@ -195,3 +195,32 @@ listing = {
   flaggedByAdmin: false,
   flaggedAt: null
 }
+
+function flagListing(listingID, ownerUID) {
+  const listingRef = firebase.firestore().collection("listings").doc(listingID);
+  const stewardRef = firebase.firestore().collection("stewards").doc(ownerUID);
+
+  // Step 1: Flag the listing
+  listingRef.update({
+    flaggedByAdmin: true,
+    isAccurate: false,
+    flaggedAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
+    // Step 2: Update steward's inaccurate count
+    stewardRef.get().then(doc => {
+      const data = doc.data();
+      const now = new Date();
+      const lastReset = new Date(data.lastReset);
+      const newQuarter = now - lastReset > 90 * 24 * 60 * 60 * 1000;
+
+      let newCount = newQuarter ? 1 : (data.inaccurateCount || 0) + 1;
+      let vaultieAccess = newCount < 3;
+
+      stewardRef.update({
+        inaccurateCount: newCount,
+        lastReset: newQuarter ? now.toISOString() : data.lastReset,
+        vaultieAccess: vaultieAccess
+      });
+    });
+  });
+}
