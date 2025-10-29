@@ -296,6 +296,34 @@ steward = {
   glyphTier: "Constellant",
   constellationGlyph: "☉"
 }
+function assignGlyphTier(uid) {
+  const stewardRef = firebase.firestore().collection("stewards").doc(uid);
+
+  stewardRef.get().then(doc => {
+    const data = doc.data();
+    const referrals = data.referralCount || 0;
+    const inaccuracies = data.inaccurateCount || 0;
+    const accuracy = 1 - (inaccuracies / Math.max(data.totalListings || 1, 1));
+
+    let tier = "Initiate";
+    let glyph = "🜁";
+
+    if (referrals >= 10 && inaccuracies === 0) {
+      tier = "Mythkeeper"; glyph = "🜂";
+    } else if (referrals >= 6 && accuracy >= 0.9) {
+      tier = "Luminary"; glyph = "☽";
+    } else if (referrals >= 3 && accuracy >= 0.95) {
+      tier = "Constellant"; glyph = "☉";
+    } else if (referrals >= 1 && accuracy === 1) {
+      tier = "Echoer"; glyph = "✦";
+    }
+
+    stewardRef.update({
+      glyphTier: tier,
+      constellationGlyph: glyph
+    });
+  });
+}
 
   });
 }
