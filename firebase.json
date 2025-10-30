@@ -104,3 +104,16 @@ stewardAccuracy: {
     "bulkyItemFlags": 4
   }
 }
+
+"scrollVault": {
+  "scroll_ABC123": {
+    "title": "Echo of Renewal",
+    "steward": "Bo",
+    "uid": "uid_Bo",
+    "glyph": "✴️",
+    "timestamp": "2025-10-28T16:20:00",
+    "referralTrail": ["uid_Willow", "uid_Bo"],
+    "status": "archived",
+    "exported": true
+  }
+}
