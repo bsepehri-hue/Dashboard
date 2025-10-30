@@ -128,3 +128,11 @@ stewardAccuracy: {
     "licenseAccepted": true
   }
 }
+
+"legacyVaultFilters": {
+  "bySteward": "uid_Bo",
+  "byBadge": "Torchbearer",
+  "byGlyph": "✴️",
+  "byExportStatus": "archived",
+  "byReferralDepth": 2
+}
