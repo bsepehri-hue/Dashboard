@@ -117,3 +117,14 @@ stewardAccuracy: {
     "exported": true
   }
 }
+
+"onboarding": {
+  "uid_Bo": {
+    "welcomeScroll": true,
+    "firstListing": true,
+    "firstReferral": true,
+    "dashboardUnlocked": true,
+    "badgesEarned": ["Seedling Spark", "Torchbearer"],
+    "licenseAccepted": true
+  }
+}
