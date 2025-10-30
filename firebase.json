@@ -63,3 +63,24 @@ stewardAccuracy: {
     "referralDepth": 2
   }
 }
+
+"badgeArchive": {
+  "uid_Bo": {
+    "badges": [
+      {
+        "title": "Torchbearer",
+        "glyph": "🔗",
+        "awardedOn": "2025-10-29",
+        "linkedScrolls": ["scroll_ABC123"],
+        "referralImpact": 3
+      },
+      {
+        "title": "Scroll Scribe",
+        "glyph": "📜",
+        "awardedOn": "2025-10-29",
+        "linkedScrolls": ["scroll_DEF456", "scroll_GHI789"],
+        "referralImpact": 0
+      }
+    ]
+  }
+}
