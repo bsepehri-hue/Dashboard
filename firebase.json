@@ -84,3 +84,23 @@ stewardAccuracy: {
     ]
   }
 }
+"adminDashboard": {
+  "stewards": {
+    "uid_Bo": {
+      "name": "Bo",
+      "listings": 12,
+      "scrolls": 10,
+      "badges": ["Torchbearer", "Scroll Scribe"],
+      "inaccurateListings": 1,
+      "referralDepth": 2,
+      "status": "active"
+    }
+  },
+  "metrics": {
+    "totalListings": 120,
+    "referrals": 45,
+    "scrollsPrinted": 90,
+    "creditCardFeesAbsorbed": 3.2,
+    "bulkyItemFlags": 4
+  }
+}
